@@ -1,5 +1,12 @@
 #include "../libs/miishell.h"
 
+/**
+ * This function takes care of getting the machines data
+ * and put it in a struct Machine.
+ *
+ * @params: void
+ * @return: struct Machine
+ */ 
 struct Machine get_machine_data(void)
 {
     struct Machine machine;
