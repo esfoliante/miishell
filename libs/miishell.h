@@ -11,6 +11,7 @@
 #include <pwd.h>
 
 #include "../src/structs/s_machine.c"
+#include "../src/structs/s_command_function.c"
 
 struct Machine get_machine_data(void);
 void miishell(void);
