@@ -1,5 +1,7 @@
 #include "libs/miishell.h"
 #include "src/machine.c"
+#include "src/tokenizer.c"
+#include "src/reader.c"
 
 void miishell(void)
 {
@@ -18,5 +20,11 @@ void miishell(void)
     do
     {
         printf("%s >> ", user);
+
+        line = get_line();
+        args = parse_line(line);
+
+        free(line);
+        free(args);
     } while(status);
 }
