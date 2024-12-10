@@ -13,5 +13,29 @@
 */ 
 int execute(char* function, char** args)
 {
+    pid_t pid;
+    int status;
+
+    pid = fork();
+
+    /**
+    * The fork was not done correctly :(
+    */  
+    if(pid < 0)
+    {
+        perror("Could not create fork on execute() !");
+    }
+
+    if(pid == 0)
+    {
+        ((int (*) (void)) &clear)();
+    } else
+    {
+        do
+        {
+            waitpid(pid, &status, WUNTRACED);
+        } while(!WIFEXITED(status) && !WIFSIGNALED(status));
+    }
+
     return 1;
 }

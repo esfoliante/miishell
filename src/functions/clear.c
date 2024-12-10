@@ -1,4 +1,5 @@
 #include "../../libs/miishell.h"
+#include <stdio.h>
 
 /**
 * This function simply takes care of imitating the 
@@ -7,6 +8,10 @@
 * terminal.
 *
 * @params: void
-* @return: void
+* @return: int
 */ 
-void clear(void) {}
+int clear(void) {
+    printf("\e[1;1H\e[2J");
+
+    return 1;
+}
