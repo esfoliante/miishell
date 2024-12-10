@@ -2,6 +2,7 @@
 #include "src/machine.c"
 #include "src/tokenizer.c"
 #include "src/reader.c"
+#include "src/commander.c"
 
 void miishell(void)
 {
@@ -23,6 +24,8 @@ void miishell(void)
 
         line = get_line();
         args = parse_line(line);
+        
+        execute("clear", args);
 
         free(line);
         free(args);
